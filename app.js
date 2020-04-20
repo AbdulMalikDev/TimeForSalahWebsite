@@ -211,7 +211,7 @@ app.get("/", async (req,res) => {
   chapter = null;
   counters = null;
 
-  res.render("mainpage",{allcountries,allcities,quran,chapter,counters,GoogleAnalyticsId:process.env.GoogleAnalyticsId,AdId:process.env.data-ad-client})
+  res.render("mainpage",{allcountries,allcities,quran,chapter,counters,GoogleAnalyticsId:process.env.GoogleAnalyticsId,AdId:process.env.dataadclient})
 })
 
 
