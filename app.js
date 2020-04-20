@@ -116,7 +116,8 @@ app.get("/day" , (req,res) => {
   (req.connection.socket ? req.connection.socket.remoteAddress : null);
     let arr = ipu.split(",")
     let ip = arr[0] 
-    if(ip === "::1" || "::ffff:127.0.0.1"){ ip = `something`;console.log("You are on local server") }
+    console.log(ip)
+    //if(ip === "::1" || "::ffff:127.0.0.1"){ ip = `something`;console.log("You are on local server") }
     console.log("THIS IS MY IP",ip)
     //let ip = "172.98.73.39" 
     fetch(`https://ipapi.co/${ip}/json/`,{
