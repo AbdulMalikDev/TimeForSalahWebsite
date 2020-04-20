@@ -116,8 +116,8 @@ app.get("/day" , (req,res) => {
   (req.connection.socket ? req.connection.socket.remoteAddress : null);
     let arr = ipu.split(",")
     let ip = arr[0] 
-    if(ip === "::1" || "::ffff:127.0.0.1"){ ip = `${process.env.MyIp}` }
-    console.log(ip)
+    if(ip === "::1" || "::ffff:127.0.0.1"){ ip = `` }
+    console.log("THIS IS MY IP",ip,process.env.MyIp)
     //let ip = "172.98.73.39" 
     fetch(`https://ipapi.co/${ip}/json/`,{
                method:"get",
@@ -132,8 +132,11 @@ app.get("/day" , (req,res) => {
                if(req.query.latitude && req.query.longitude){
                 e.latitude = req.query.latitude
                 e.longitude = req.query.longitude
-                const json = await fetch(`https://dev.virtualearth.net/REST/v1/Locations/${req.query.latitude}`+","+`${req.query.longitude}?includeEntityTypes=Address,Neighborhood,PopulatedPlace,Postcode1,AdminDivision1,AdminDivision2,CountryRegion&includeNeighborhood=1&key=${process.env.VirtualEarthApiKey}`)
+                var url = `https://dev.virtualearth.net/REST/v1/Locations/${req.query.latitude}`+","+`${req.query.longitude}?includeEntityTypes=Address,Neighborhood,PopulatedPlace,Postcode1,AdminDivision1,AdminDivision2,CountryRegion&includeNeighborhood=1&key=${process.env.VirtualEarthApiKey}`
+                console.log(url)
+                const json = await fetch(url)
                 const data = await json.json()
+                console.log(data)
                 if(data.resourceSets[0].resources[0]){
                 cityname = `${data.resourceSets[0].resources[0].address.countryRegion}`
                 if(data.resourceSets[0].resources[0].address.adminDistrict2 ){ 
@@ -153,7 +156,7 @@ app.get("/day" , (req,res) => {
               //console.log(cityname)
               // console.log(arr,"@@@@@@@@@@@@@@@@")
               
-              res.render("daypage",{r:arr[0],location,candy,timezone,cityname,GoogleAnalyticsId:process.env.GoogleAnalyticsId,AdId:process.env.data-ad-client,pubid:process.env.PubId,integrity:process.env.Integrity})
+              res.render("daypage",{r:arr[0],location,candy,timezone,cityname,GoogleAnalyticsId:process.env.GoogleAnalyticsId,AdId:process.env.dataadclient,pubid:process.env.PubId,integrity:process.env.Integrity})
                  
              })
   
