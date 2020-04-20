@@ -1,0 +1,33 @@
+{
+  "name": "templatemo_447_coming",
+  "version": "1.0.0",
+  "description": "",
+  "main": "app.js",
+  "dependencies": {
+    "adhan": "^3.0.0",
+    "all-countries-and-cities-json": "^1.0.0",
+    "body-parser": "^1.19.0",
+    "cities.json": "^1.1.5",
+    "date-now": "^1.0.1",
+    "ejs": "^2.7.1",
+    "express": "^4.17.1",
+    "geo-tz": "^5.0.5",
+    "moment": "^2.24.0",
+    "moment-timezone": "^0.5.27",
+    "node-fetch": "^2.6.0",
+    "nodemon": "^1.19.3",
+    "offline-geocoder": "^1.0.0",
+    "quran": "0.0.9"
+  },
+  "devDependencies": {},
+  "scripts": {
+    "start": "node app.js",
+    "dev": "env-cmd ./ignore/dev.env nodemon src/app.js",
+    "logs": "heroku logs --tail",
+    "git": "git add . && git commit -m",
+    "postgit": "git push --all",
+    "done": "git push heroku master"
+  },
+  "author": "",
+  "license": "ISC"
+}

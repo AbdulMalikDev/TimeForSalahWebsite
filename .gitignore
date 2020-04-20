@@ -1,9 +1,7 @@
 node_modules
 ignore
-package.json
 playground.js
 sitemap.xml
-package-lock.json
 scrap
 Robots.txt
 .vscode
