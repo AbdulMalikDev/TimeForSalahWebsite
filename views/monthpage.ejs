@@ -1,0 +1,375 @@
+<!DOCTYPE html>
+<html lang="en">
+	<head>
+		
+		<!-- Global site tag (gtag.js) - Google Analytics -->
+		<script async src="https://www.googletagmanager.com/gtag/js?id=<%GoogleAnalyticsId%>>"></script>
+		<script>
+		window.dataLayer = window.dataLayer || [];
+		function gtag(){dataLayer.push(arguments);}
+		gtag('js', new Date());
+
+		gtag('config', '<%GoogleAnalyticsId%>');
+		</script>
+		<script data-ad-client="<%AdId%>" async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js"></script>
+
+		<meta charset="utf-8">
+		<link rel="icon" type="image/png" sizes="32x32" href="https://www.salahtimes.com/favicon-32x32.png?v=54965">
+		<link rel="icon" type="image/png" sizes="16x16" href="https://www.salahtimes.com/favicon-16x16.png?v=54965">
+		<meta http-equiv="X-UA-Compatible" content="IE=Edge">
+		<title>  Prayer times for <%= location %> </title>
+        <meta name="keywords" content="Hyderabad,salah,namaz,salah,salat,salaat,suhur,suhoor,fajr,sunrise,zohar,zuhr,zuhar,dhuhr,dhur,asr,asar,magrib,maghrib,iftar,iftari,isha,prayer,times,ramadan,ramadaan,fasting,egyptian general authority of survey,university of islamic sciences,umm al qura,islamic society of north america,hanafi,shafi,calculation,times,timing">
+		<meta name="description" content="Mobile friendly prayer times for <% if(cityname){ %>  '<%= cityname %>'  <% }else{ %> anywhere around the world. <% } %> View or download Fajr, Dhuhr, Asr, Maghrib and Isha prayer times on the go in either daily, weekly, monthly or yearly calendar formats.">
+		<meta name="viewport" content="width=device-width, initial-scale=1">
+		<meta property="og:image" content="images/namazpic-min.png" alt="Free Polls can be created which are colorful "/>
+        <!-- 
+    	Coming Template
+    	http://www.templatemo.com/preview/templatemo_447_coming
+		-->
+		<link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.11.2/css/all.css" integrity="sha384-KA6wR/X5RY4zFAHpv/CnoG2UW1uogYfdnP67Uv7eULvTveboZJg0qUpmJZb5VqzN" crossorigin="anonymous">
+		<link href='http://fonts.googleapis.com/css?family=Open+Sans:400,300,400italic,700' rel='stylesheet' type='text/css'>
+		<link rel="stylesheet" href="css/bootstrap.min.css">
+		<link rel="stylesheet" href="css/font-awesome.min.css">
+		<link rel="stylesheet" href="css/animate.min.css">
+		<link rel="stylesheet" href="css/templatemo-style.css">
+		<link rel="stylesheet" href="css/MONTHtable.css">
+		<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/materialize/1.0.0/css/materialize.min.css"/>
+	</head>
+<body>
+	<img src="images/namazpic-min.png" alt="Salah Times" style="display:none">
+	<!-- start preloader -->
+	<div class="preloader">
+		<div class="sk-spinner sk-spinner-three-bounce">
+  			<div class="sk-bounce1"></div>
+			<div class="sk-bounce2"></div>
+			<div class="sk-bounce3"></div>
+		</div>
+	</div>
+	<!-- end preloader -->
+	<!---start-countdown-timer-->
+	<section id="countdown">
+		<div class="container">
+			<div class="row">
+				<div class="col-md-12">
+					<h1 class="wow bounceIn" data-wow-delay="0.9s">Salah Times</h1>
+					<h2 class="element">
+						<span class="sub-element">Never miss Salah</span><br>
+						<span class="sub-element">Always be on time</span><br><br>
+                        <span class="sub-element">Time left for <span id="nextnamaz"> next Salah </span></span><br><br>
+					</h2>
+                    
+                    <!-- Edit js/init.js file for the date and time -->
+                    
+					<ul class="countdown" style="margin-top:3%;">
+						<!-- <li>
+							<span class="days" id="days">365</span>
+							<h3>Days</h3>
+						</li> -->
+						<li>
+							<span class="hours" id="hours">24</span>
+							<h3>Hours</h3>
+						</li>
+						<li>
+							<span class="minutes" id="minutes">59</span>
+							<h3>Minutes</h3>
+						</li>
+						<li>
+							<span class="seconds" id="seconds">59</span>
+							<h3>Seconds</h3>
+						</li>	
+					</ul>
+					
+
+	<div
+        id="hasVotedAlreadyErrorMsg"
+        class="card-panel sometthing"
+        style="margin: 5% 10%"
+	  >
+	    <span style="font-size: 2em" class=" text-darken-2 center-block">Approximate Location: </span>
+        <span style="font-size: 2em" class="red-text text-darken-2 center-block" id = "location"
+          ><%= location %></span
+		>
+
+		<a class="waves-effect waves-light btn" onclick="getlocation()" style="margin-top: 9%">Get your location</a>	
+	  </div>
+	  
+
+
+	  <div class="container-name">
+			<div id="bloc1">
+		<!-- <label>Browser Select</label> -->
+		<select class="browser-default" style="display:inline;width:37%;margin-right: 5%;" onchange="location = this.value;">
+		  <option value="" disabled selected>Timing Method</option> 
+		  <option value="https://www.timeforsalah.com/month?prayerMethod=0">MuslimWorldLeague</option> 
+		  <option value="https://www.timeforsalah.com/month?prayerMethod=1">Egyptian</option>
+		  <option value="https://www.timeforsalah.com/month?prayerMethod=2">Karachi</option> 
+		  <option value="https://www.timeforsalah.com/month?prayerMethod=3">UmmAlQura</option> 
+		  <option value="https://www.timeforsalah.com/month?prayerMethod=4">Dubai</option> 
+		  <option value="https://www.timeforsalah.com/month?prayerMethod=5">Qatar</option> 
+		  <option value="https://www.timeforsalah.com/month?prayerMethod=6">Kuwait</option> 
+		  <option value="https://www.timeforsalah.com/month?prayerMethod=7">MoonsightingCommittee</option> 
+		  <option value="https://www.timeforsalah.com/month?prayerMethod=8">Singapore</option>
+		  <option value="https://www.timeforsalah.com/month?prayerMethod=9">NorthAmerica</option> 
+		  
+		</select>
+	  </div>
+	  <div id="bloc2">
+		<!-- <label>Browser Select</label> -->
+		<select class="browser-default" style="display:inline;width:37%" onchange="location = this.value;">
+		  <option value="" disabled selected style="font-weight:500;height:auto"><strong> Asr Method </strong></option>
+		  <option value="https://www.timeforsalah.com/month?asrMethod=0">Shafi</option>
+		  <option value="https://www.timeforsalah.com/month?asrMethod=1">Hanafi</option>
+		  
+		</select>
+	  </div>
+	  </div>
+  
+	  <style>
+	  .container-name{
+		  text-align:center;
+	  }
+	  #bloc1, #bloc2
+  {
+	  display:inline;
+  }
+	  </style>
+	  
+  
+
+
+
+
+
+	<div class="tablecontainer" style="margin: 5% 10%">
+		<p>Click the names to see the timings.</p>
+		<table>
+			<thead>
+			<col width="250">
+			<tr class="table-headers">
+			<th style="font-size:2em" >Oct 2019</th>
+			<th></th>
+			<th></th>
+			<th></th>
+			<th></th>
+			<th></th>
+			<th></th>
+			</tr>
+			</thead>
+			<thead>
+			<tr class="table-headers">
+			<th>Day</th>
+			<th>Fajr</th>
+			<th>Sunrise</th>
+			<th>Dhuhr</th>
+			<th>Asr</th>
+			<th>Maghrib</th>
+			<th>Isha</th>
+			</tr>
+			</thead>
+			<tbody>
+				<% namaz.forEach(r => {%>
+			<tr>
+			  <td><%= r.date %></td>
+			  <th class="mobile-header">Fajr</th><td><%= r.fajr %></td>
+			  <th class="mobile-header">Sunrise</th><td><%= r.sunrise %></td>
+			  <th class="mobile-header">Dhuhr</th><td><%= r.zuhar %></td>
+			  <th class="mobile-header">Asr</th><td><%= r.asr %></td>
+			  <th class="mobile-header">Maghrib</th><td><%= r.maghrib %></td>
+			  <th class="mobile-header">Isha</th><td><%= r.isha %></td>
+			  
+			</tr>
+
+			<% }) %>
+		
+	</tbody>
+	</table>
+	
+	<!-- <div class="spacer" style=" width: 100%;height: 95px;">
+			&nbsp;
+	</div> -->
+	<div class="container-name">		
+			<div id="bloc1"><a class="waves-effect waves-light btn-small chota" onclick="window.location.href = 'https://www.timeforsalah.com/day'"><i class="fas fa-chevron-left" style="margin-right:3%;font-size: 0.8em"></i>Show Today only</a></div>
+			<div id="bloc2"><a class="waves-effect waves-light btn-small bada" onclick="window.location.href = 'https://www.timeforsalah.com/'">Home<i class="fas fa-chevron-right" style="margin-left:5%;font-size: 0.8em"></i></a></div>
+		</div>		
+	
+		<style>
+			.chota{margin-top: 4%;width:50%;}
+			.bada{margin-top: 4%;width:30%;margin-left: 18%;}
+	
+		@media (max-width: 740px) {
+	
+			.chota{margin-top: 4%;width:65%;text-align: left}
+			.bada{margin-top: 4%;width:30%;margin-left: 2%;}
+		}
+		</style>
+			
+	<script type="text/javascript" src="./PrayTimes.js"></script> 
+	<script src="js/jquery.js"></script>
+	<script src="js/bootstrap.min.js"></script>
+	<script src="js/countdown.js"></script>
+	<script src="js/init.js"></script>
+	<script src="js/wow.min.js"></script>
+	<script src="js/typed.js"></script>
+	<script src="js/custom.js"></script>
+	<script src="js/new.js"></script>
+	<script>
+	const func = () => {
+		
+	}
+	
+	function getlocation(){
+		
+	setTimeout(() => {
+		if (navigator.geolocation) {
+					// geolocation related code
+	navigator.geolocation.getCurrentPosition((e) => {console.log(e.coords)
+	// prayerdate = new Date()
+	// var times = prayTimes.getTimes(prayerdate, [42.4667, -2.45],undefined,undefined,'12h');
+	// console.log(times)
+	window.location.href = `https://www.timeforsalah.com/day?latitude=${e.coords.latitude}&longitude=${e.coords.longitude} `
+	
+	})
+}
+}
+
+	,2000);}
+			</script>
+
+<script>
+				
+		Array.min = function( array ){
+				return Math.min.apply( Math, array );
+			};
+
+			const forhoursandminutes = (str) => {
+				const thir = str
+				let arr = thir.split(":")
+				const hours = arr[0]
+				const minutes = arr[1].split(" ")[0]
+				return parseInt(hours)
+
+			}
+
+			//console.log("<%= timezone %>")
+
+			const anotherfunction = (str,name,num) => {
+			const thir = str
+			let arr = thir.split(":")
+			const hours = arr[0]
+			const minutes = arr[1].split(" ")[0]
+			//console.log(minutes,"MINUTESSSSS")
+			return getime(hours,minutes , name , num)
+			}
+
+			const getime = (hours,minutes , name , something) => {
+				const date = moment().tz("<%= timezone %>").hour(hours).minute(minutes)
+				const realdate = moment().tz("<%= timezone %>").hour(hours).minute(minutes)
+				const now = moment().tz("<%= timezone %>")
+				const displaydate = moment().tz("<%= timezone %>").hour(hours).minute(minutes).format("dddd, MMMM Do YYYY, h:mm:ss a")
+				if(something === 1){console.log("im in @@@@@@@@@@@@@@@@@@@");date.add(1,'d');realdate.add(1,'d');}
+				// var duration = moment.duration(date.diff(now))
+				// var hours = duration.asHours();
+				// var minutes = duration.asMinutes()
+				// console.log(hours,minutesy)
+				difference = date - now
+				return {difference,realdate , name,displaydate}
+			}		
+			
+			const fajr = anotherfunction('<%=candy[0].fajr%>',"Fajr")
+			const zuhar = anotherfunction('<%=candy[0].zuhar%>',"Zuhar")
+			const asr = anotherfunction('<%=candy[0].asr%>',"Asr") 
+			const maghrib = anotherfunction('<%=candy[0].maghrib%>',"Maghrib")
+			const isha = anotherfunction('<%=candy[0].isha%>',"Isha")
+			const nextDayFajr = anotherfunction('<%=candy[1].fajr%>',"Fajr",1)
+			console.log(fajr,zuhar,asr,maghrib,isha,nextDayFajr)
+			var myArray = [fajr,zuhar,asr,maghrib,isha,nextDayFajr];
+			let arr = [fajr,zuhar,asr,maghrib,isha,nextDayFajr]
+			
+
+			let nextnamaz = undefined
+
+			var lowest = Number.POSITIVE_INFINITY;
+			var highest = 0;
+			var tmp;
+			for (var i=myArray.length-1; i>=0; i--) {
+				tmp = myArray[i].difference;
+				console.log('myArray[i].difference: ', myArray[i].difference);
+				console.log(tmp>=0 && tmp > highest)
+				//console.log(myArray)
+				
+				if (tmp>=0 && tmp < lowest) lowest = tmp;
+				if (tmp>=0 && tmp > highest) highest = tmp;
+			}
+			let index;
+			
+			for (var i=myArray.length-1; i>=0; i--) {
+				
+				
+				if(myArray[i].difference === lowest){index = i}
+				console.log('myArray[i].difference === lowest: ', myArray[i].difference === lowest);
+			}
+			for (var i=myArray.length-1; i>=0; i--) {
+			
+				console.log(myArray[i].displaydate)
+			}
+			console.log('index: ', index);	
+			console.log(moment().tz("<%= timezone %>").format("dddd, MMMM Do YYYY, h:mm:ss a"))
+			//console.log(myArray[index].name)
+			console.log(highest, lowest,"STACKOVERFLOW MAGIC");
+
+
+			
+			document.getElementById('nextnamaz').innerText = myArray[index].name
+
+
+
+
+
+		const second = 1000,
+		minute = second * 60,
+		hour = minute * 60,
+		day = hour * 24;
+
+		//let countDown = new Date('Sep 30, 2020 00:00:00').getTime(),
+		x = setInterval(function() {
+
+		let now = moment().tz("<%= timezone %>")
+		distance = myArray[index].realdate ;
+		//console.log(now.format("dddd, MMMM Do YYYY, h:mm:ss a"),distance.format("dddd, MMMM Do YYYY, h:mm:ss a"))
+				if((distance - now)<=0){
+					window.location.reload(false); 
+				}
+				//distance.subtract(20,'m')
+				var duration = moment.duration(distance.diff(now))
+				var hours = duration.asHours();
+				//console.log('hours: ', hours);
+				var minutes = duration.asMinutes()
+				totalSeconds = duration.asSeconds()
+				hoursq = Math.floor(totalSeconds / 3600);
+				totalSeconds %= 3600;
+				minutesq = Math.floor(totalSeconds / 60);
+				secondsq = parseInt(totalSeconds % 60);
+				console.log(hoursq,minutesq,secondsq)
+				
+
+		//document.getElementById('days').innerText = Math.floor(distance / (day)),
+			document.getElementById('hours').innerText = hoursq,
+			//console.log('duration.asHours(): ', duration.asSeconds());
+			
+			
+			document.getElementById('minutes').innerText =  Math.floor(totalSeconds / 60),
+			document.getElementById('seconds').innerText = parseInt(totalSeconds % 60);
+		
+		//do something later when date is reached
+		//if (distance < 0) {
+		//  clearInterval(x);
+		//  'IT'S MY BIRTHDAY!;
+		//}
+
+		}, second)
+				</script>
+		
+
+	
+</body>
+</html>

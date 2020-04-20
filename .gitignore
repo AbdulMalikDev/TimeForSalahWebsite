@@ -1,0 +1,14 @@
+node_modules
+ignore
+package.json
+playground.js
+sitemap.xml
+package-lock.json
+scrap
+Robots.txt
+.vscode
+public/css
+public/fonts
+public/images
+public/scss
+prepros-6.config

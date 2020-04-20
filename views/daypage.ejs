@@ -1,0 +1,357 @@
+<!DOCTYPE html>
+<html lang="en">
+	<head>
+		
+		
+		<!-- Global site tag (gtag.js) - Google Analytics -->
+		<script async src="https://www.googletagmanager.com/gtag/js?id=<%GoogleAnalyticsId%>>"></script>
+		<script>
+		window.dataLayer = window.dataLayer || [];
+		function gtag(){dataLayer.push(arguments);}
+		gtag('js', new Date());
+
+		gtag('config', '<%GoogleAnalyticsId%>');
+		</script>
+		<script data-ad-client="<%AdId%>" async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js"></script>
+		<script src="https://cdnjs.cloudflare.com/ajax/libs/moment.js/2.10.6/moment.min.js"></script>
+		<script src="https://cdnjs.cloudflare.com/ajax/libs/moment-timezone/0.5.23/moment-timezone-with-data-2012-2022.min.js"></script>
+		
+		<link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
+
+		<meta charset="utf-8">
+		<meta http-equiv="X-UA-Compatible" content="IE=Edge">
+		<title>  Prayer times for <%= location %>  </title>
+        <meta name="keywords" content=" <%= location %> ,salah,namaz,salah,salat,salaat,suhur,suhoor,fajr,sunrise,zohar,zuhr,zuhar,dhuhr,dhur,asr,asar,magrib,maghrib,iftar,iftari,isha,prayer,times,ramadan,ramadaan,fasting,egyptian general authority of survey,university of islamic sciences,umm al qura,islamic society of north america,hanafi,shafi,calculation,times,timing">
+		<meta name="description" content="Mobile friendly prayer times for <%= location %> and anywhere around the world. View or download Fajr, Dhuhr, Asr, Maghrib and Isha prayer times on the go in either daily, weekly, monthly or yearly calendar formats.">
+		<meta name="viewport" content="width=device-width, initial-scale=1">
+		<meta property="og:image" content="images/namazpic-min.png" loading="lazy" alt="Prayer times calculation "/>
+		<meta property="og:title" content="namaz salah times calculation" />
+		<meta property="og:type" content="Salah timings" />
+		<meta property="og:url" content="https://www.timeforsalah.com/" />
+
+ 
+		<link rel="icon" type="image/png" sizes="32x32" href="https://www.salahtimes.com/favicon-32x32.png?v=54965">
+		<link rel="icon" type="image/png" sizes="16x16" href="https://www.salahtimes.com/favicon-16x16.png?v=54965">
+        
+		
+		<link href='http://fonts.googleapis.com/css?family=Open+Sans:400,300,400italic,700' rel='stylesheet' type='text/css'>
+
+		
+		<link rel="stylesheet" href="css/bootstrap.min.css">
+		<link rel="stylesheet" href="css/font-awesome.min.css">
+		<link rel="stylesheet" href="css/animate.min.css">
+		<link rel="stylesheet" href="css/MINIFIEDtemplatemo-style.css">
+		<link rel="stylesheet" href="css/DAYtable.css">
+
+
+		<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/materialize/1.0.0/css/materialize.min.css"/>
+		
+	</head>
+<body>
+	<img src="images/namazpic-min.png" loading="lazy" alt="Salah Times" style="display:none">
+	
+	<div class="preloader">
+		<div class="sk-spinner sk-spinner-three-bounce" style="position:absolute;">
+  			<div class="sk-bounce1"></div>
+			<div class="sk-bounce2"></div>
+			<div class="sk-bounce3"></div><br>
+		</div><br><br>
+		<div style="margin-left:4%;position: relative;
+		top: 10%;"><span style="font-size: 1.5em" class="red-text text-darken-2 center-block">Begin and End your day with prayer 😊</span><br></div>
+		 
+	</div>
+	
+	<section id="countdown">
+		<div class="container">
+			<div class="row">
+				<div class="col-md-12">
+					<h1 class="wow bounceIn" data-wow-delay="0.9s">Salah Times</h1>
+					<h2 class="element">
+						<span class="sub-element">Never miss Salah</span>
+						<span class="sub-element">Always be on time</span>
+                        
+					</h2>
+					<h2><span class="sub">Time left for <span id="nextnamaz"> next Salah </span> to start</span></h2> 
+					<h3 style="display:none">Prayer times calculator</h3>
+					<h4 style="display:none">Namaz timings</h4>
+					<h5 style="display:none">Prayer timings for all over the world</h5>
+					<h6 style="display:none">salah timings for all cities places all over the world</h6>
+                    
+                   
+                    
+					<ul class="countdown" style="margin-top:3%;">
+						
+						<li>
+							<span class="hours" id="hours">24</span>
+							<h3>Hours</h3>
+						</li>
+						<li>
+							<span class="minutes" id="minutes">59</span>
+							<h3>Minutes</h3>
+						</li>
+						<li>
+							<span class="seconds" id="seconds">59</span>
+							<h3>Seconds</h3>
+						</li>	
+					</ul>
+					
+				</div>
+			</div>
+		</div>
+	</section>
+	
+	<div
+        id="hasVotedAlreadyErrorMsg"
+        class="card-panel sometthing"
+        style="margin: 5% 10%"
+	  >
+	    <span style="font-size: 2em" class=" text-darken-2 center-block">Approximate Location: </span>
+        <span style="font-size: 2em" class="red-text text-darken-2 center-block" id = "location"
+          ><%= location %></span
+		>
+
+		<a class="waves-effect waves-light btn" onclick="getlocation()" style="margin-top: 9%">Get your location</a>	
+	  </div>
+
+	  
+      <!-- Go to www.addthis.com/dashboard to customize your tools -->
+<script type="text/javascript" src="//s7.addthis.com/js/300/addthis_widget.js#pubid=<%pubid%>"></script>
+
+<!-- Go to www.addthis.com/dashboard to customize your tools -->
+<div class="addthis_inline_share_toolbox"></div>
+	  
+
+	  <div class="container-name">
+		  <div id="bloc1">
+	  <!-- <label>Browser Select</label> -->
+	  <select class="browser-default" style="display:inline;width:37%;margin-right: 5%;" onchange="location = this.value;">
+		<option id = "" value="" disabled selected>Timing Method</option> 
+		<option id = "0" value="0">MuslimWorldLeague</option> 
+		<option id = "1" value="1">Egyptian</option>
+		<option id = "2" value="2">Karachi</option> 
+		<option id = "3" value="3">UmmAlQura</option> 
+		<option id = "4" value="4">Dubai</option> 
+		<option id = "5" value="5">Qatar</option> 
+		<option id = "6" value="6">Kuwait</option> 
+		<option id = "7" value="7">MoonsightingCommittee</option> 
+		<option id = "8" value="8">Singapore</option>
+		<option id = "9" value="9">NorthAmerica</option> 
+		
+	  </select>
+	</div>
+	<div id="bloc2">
+	  
+	  <select class="browser-default" style="display:inline;width:37%" onchange="location = this.value;">
+		<option  value="" disabled selected style="font-weight:500;height:auto"><strong> Asr Method </strong></option>
+		<option id = "10" value="">Shafi</option>
+		<option id = "11" value="">Hanafi</option>
+		
+	  </select>
+	</div>
+	</div>
+
+	<style>
+	.container-name{
+		text-align:center;
+	}
+	#bloc1, #bloc2
+{
+    display:inline;
+}
+	</style>
+
+	<script>
+			function updateQueryStringParameter(a,b,c){var d=new RegExp("([?&])"+b+"=.*?(&|$)","i"),e=-1!==a.indexOf("?")?"&":"?";return a.match(d)?a.replace(d,"$1"+b+"="+c+"$2"):a+e+b+"="+c}console.log(window.location.href);
+			var zero=document.getElementById("0"),one=document.getElementById("1"),two=document.getElementById("2"),three=document.getElementById("3"),four=document.getElementById("4"),five=document.getElementById("5"),six=document.getElementById("6"),seven=document.getElementById("7"),eight=document.getElementById("8"),nine=document.getElementById("9"),ten=document.getElementById("10"),eleven=document.getElementById("11");
+			zero.setAttribute("value",updateQueryStringParameter(window.location.href,"prayerMethod",0));one.setAttribute("value",updateQueryStringParameter(window.location.href,"prayerMethod",1));two.setAttribute("value",updateQueryStringParameter(window.location.href,"prayerMethod",2));three.setAttribute("value",updateQueryStringParameter(window.location.href,"prayerMethod",3));four.setAttribute("value",updateQueryStringParameter(window.location.href,"prayerMethod",4));
+			five.setAttribute("value",updateQueryStringParameter(window.location.href,"prayerMethod",5));six.setAttribute("value",updateQueryStringParameter(window.location.href,"prayerMethod",6));seven.setAttribute("value",updateQueryStringParameter(window.location.href,"prayerMethod",7));eight.setAttribute("value",updateQueryStringParameter(window.location.href,"prayerMethod",8));nine.setAttribute("value",updateQueryStringParameter(window.location.href,"prayerMethod",9));
+			ten.setAttribute("value",updateQueryStringParameter(window.location.href,"asrMethod",0));eleven.setAttribute("value",updateQueryStringParameter(window.location.href,"asrMethod",1));console.log(one,two);
+	</script>
+	
+
+
+
+
+
+	<div class="tablecontainer" style="margin: 5% 10%">
+      
+        
+		<table>
+			<thead>
+			<col width="250">
+			<tr class="table-headers">
+			<th style="font-size:2em" >Oct 2019</th>
+			<th></th>
+			<th></th>
+			<th></th>
+			<th></th>
+			<th></th>
+			<th></th>
+			</tr>
+			</thead>
+			<thead>
+			<tr class="table-headers">
+			<th>Day</th>
+			<th>Fajr</th>
+			<th>Sunrise</th>
+			<th>Dhuhr</th>
+			<th>Asr</th>
+			<th>Maghrib</th>
+			<th>Isha</th>
+			</tr>
+			</thead>
+			<tbody>
+				
+			<tr>
+			  <td style="font-weight:500">Today (<%= r.date %>)</td>
+			  <th  style="text-align:center;font-weight:500" class="mobile-header" >Fajr</th>      <td   style="text-align:center;font-weight:500"  ><%= r.fajr %></td>
+			  <th  style="text-align:center;font-weight:500"  class="mobile-header">Sunrise</th>   <td   style="text-align:center;font-weight:500"  ><%= r.sunrise %></td>
+			  <th  style="text-align:center;font-weight:500"  class="mobile-header">Dhuhr</th>     <td   style="text-align:center;font-weight:500"  ><%= r.zuhar %></td>
+			  <th  style="text-align:center;font-weight:500"  class="mobile-header">Asr</th>       <td   style="text-align:center;font-weight:500"  ><%= r.asr %></td>
+			  <th  style="text-align:center;font-weight:500"  class="mobile-header">Maghrib</th>   <td   style="text-align:center;font-weight:500"  ><%= r.maghrib %></td>
+			  <th  style="text-align:center;font-weight:500"  class="mobile-header">Isha</th>      <td   style="text-align:center;font-weight:500"  ><%= r.isha %></td>
+			  
+			</tr>
+            </tbody>
+			</table>
+			
+			<style>
+
+				table td {
+						font-size: 1.7em;
+						
+						}
+						table th {
+						font-size: 1.7em;
+						}
+
+				@media only screen and (min-width: 760px) {
+
+										table td {
+											font-size: 3em;
+											
+										}
+										table th {
+											font-size: 3em;
+										}}
+			
+			</style>
+		
+			<div
+        id="hasVotedAlreadyErrorMsg"
+        class="card-panel sometthing"
+        style="margin-top: 3%; width:100%"
+	  >
+		<span style="font-size: 1.5em" class=" text-darken-2 center-block">Default Prayer Timing Method: <strong> <p style="color:red"> Islamic University of Karachi </p> </strong></span>
+		<span style="font-size: 1.5em ;margin-top: 3%;" class=" text-darken-2 center-block"> Default Asr Timing Method:<strong> <p style="color:red"> Hanafi </p> </strong></span>
+        
+
+		</div>
+
+
+
+
+	<div class="container-name">		
+		<div id="bloc1"><a class="waves-effect waves-light btn-small chota" onclick="window.location.href = 'https://www.timeforsalah.com/month'"><i class="fas fa-chevron-left" style="margin-right:3%;font-size: 0.8em"></i>Show full month</a></div>
+		<div id="bloc2"><a class="waves-effect waves-light btn-small bada" onclick="window.location.href = 'https://www.timeforsalah.com/'">Home<i class="fas fa-chevron-right" style="margin-left:5%;font-size: 0.8em"></i></a></div>
+	</div>		
+
+
+
+	<style>
+		.chota{margin-top: 4%;width:50%;}
+		.bada{margin-top: 4%;width:30%;margin-left: 18%;}
+
+	@media (max-width: 740px) {
+
+		.chota{margin-top: 4%;width:65%;text-align: left}
+		.bada{margin-top: 4%;width:30%;margin-left: 2%;}
+	}
+	</style>
+
+		<ul class="collapsible " style="height:auto;margin-top: 9%;margin-bottom: 9%;">
+			<li class="active">
+					<div class="collapsible-header"><i class="material-icons"> <p style="font-weight:500;font-size:1em"> bookmark_border </p></i>Prayer timing methods</div>
+					<div class="collapsible-body"><span>Given below is a brief explanation on the Muslim Prayer Time calculation methods for general information.</span></div>
+			</li>
+			<li>
+			<div class="collapsible-header"><i class="material-icons">access_time</i>MuslimWorldLeague</div>
+			<div class="collapsible-body"><span>Muslim World League. Fajr angle: 18, Isha angle: 17</span></div>
+			</li>
+			<li>
+			<div class="collapsible-header"><i class="material-icons">access_time</i>Egyptian</div>
+			<div class="collapsible-body"><span>Egyptian General Authority of Survey. Fajr angle: 19.5, Isha angle: 17.5
+				</span></div>
+			</li>
+			<li>
+			<div class="collapsible-header"><i class="material-icons">access_time</i>Karachi</div>
+			<div class="collapsible-body"><span>University of Islamic Sciences, Karachi. Fajr angle: 18, Isha angle: 18
+				</span></div>
+			</li>
+			<li>
+					<div class="collapsible-header"><i class="material-icons">access_time</i>UmmAlQura</div>
+					<div class="collapsible-body"><span>Umm al-Qura University, Makkah. Fajr angle: 18, Isha interval: 90. Note: you should add a +30 minute custom adjustment for Isha during Ramadan.
+						</span></div>
+			</li>
+			<li>
+					<div class="collapsible-header"><i class="material-icons">access_time</i>Dubai</div>
+					<div class="collapsible-body"><span>Method used in UAE. Fajr angle: 18.2, Isha angle: 18.2.
+						</span></div>
+			</li>
+			<li>
+					<div class="collapsible-header"><i class="material-icons">access_time</i>Qatar</div>
+					<div class="collapsible-body"><span>Modified version of Umm al-Qura used in Qatar. Fajr angle: 18, Isha interval: 90.
+						</span></div>
+			</li>
+			<li>
+					<div class="collapsible-header"><i class="material-icons">access_time</i>Kuwait</div>
+					<div class="collapsible-body"><span>Method used by the country of Kuwait. Fajr angle: 18, Isha angle: 17.5
+						</span></div>
+			</li>
+			<li>
+					<div class="collapsible-header"><i class="material-icons">access_time</i>MoonsightingCommittee</div>
+					<div class="collapsible-body"><span>Moonsighting Committee. Fajr angle: 18, Isha angle: 18. Also uses seasonal adjustment values.
+						</span></div>
+			</li>
+			<li>
+					<div class="collapsible-header"><i class="material-icons">access_time</i>Singapore</div>
+					<div class="collapsible-body"><span>Method used by Singapore. Fajr angle: 20, Isha angle: 18.
+
+			</li>
+			<li>
+					<div class="collapsible-header"><i class="material-icons">access_time</i>NorthAmerica</div>
+					<div class="collapsible-body"><span>Referred to as the ISNA method. This method is included for completeness but is not recommended. Fajr angle: 15, Isha angle: 15
+						</span></div>
+			</li>
+		</ul>
+
+		<script>
+					document.addEventListener('DOMContentLoaded', function() {var elems = document.querySelectorAll('.collapsible');var instances = M.Collapsible.init(elems, {});});
+
+		</script>
+	
+	<script src="js/jquery.js"></script>
+	<script src="js/bootstrap.min.js"></script>
+	<script src="https://cdnjs.cloudflare.com/ajax/libs/materialize/1.0.0/js/materialize.min.js" integrity="<%integrity%>>" crossorigin="anonymous"></script>
+	<script src="js/typed.js"></script>
+	<script src="js/custom.js"></script>
+    
+    <script>
+       
+            $('tr td:first-child').siblings().css({'display': 'inline-block'});var $this = $('tr td:first-child');setTimeout(function(){$this.siblings().css('transform', 'translateY(0)');},0);$('tr td:first-child').not($('tr td:first-child')).siblings().css({'display': 'none', 'transform': 'translateY(-9999px)'});
+
+	
+				var func=function(){};function getlocation(){setTimeout(function(){navigator.geolocation&&navigator.geolocation.getCurrentPosition(function(a){console.log(a.coords);window.location.href="https://www.timeforsalah.com/day?latitude="+a.coords.latitude+"&longitude="+a.coords.longitude+" "})},2E3)};
+	
+				Array.min=function(a){return Math.min.apply(Math,a)};
+				var forhoursandminutes=function(a){a=a.split(":");var b=a[0];a[1].split(" ");return parseInt(b)},anotherfunction=function(a,b,d){var c=a.split(":");a=c[0];c=c[1].split(" ")[0];return getime(a,c,b,d)},getime=function(a,b,d,c){var e=moment().tz("<%= timezone %>").hour(a).minute(b),f=moment().tz("<%= timezone %>").hour(a).minute(b),g=moment().tz("<%= timezone %>");a=moment().tz("<%= timezone %>").hour(a).minute(b).format("dddd, MMMM Do YYYY, h:mm:ss a");1===c&&(console.log("im in @@@@@@@@@@@@@@@@@@@"),
+				e.add(1,"d"),f.add(1,"d"));difference=e-g;return{difference:difference,realdate:f,name:d,displaydate:a}},fajr=anotherfunction("<%=candy[0].fajr%>","Fajr"),zuhar=anotherfunction("<%=candy[0].zuhar%>","Zuhar"),asr=anotherfunction("<%=candy[0].asr%>","Asr"),maghrib=anotherfunction("<%=candy[0].maghrib%>","Maghrib"),isha=anotherfunction("<%=candy[0].isha%>","Isha"),nextDayFajr=anotherfunction("<%=candy[1].fajr%>","Fajr",1);console.log(fajr,zuhar,asr,maghrib,isha,nextDayFajr);
+				for(var myArray=[fajr,zuhar,asr,maghrib,isha,nextDayFajr],arr=[fajr,zuhar,asr,maghrib,isha,nextDayFajr],nextnamaz=void 0,lowest=Number.POSITIVE_INFINITY,highest=0,tmp,i=myArray.length-1;0<=i;i--)tmp=myArray[i].difference,console.log("myArray[i].difference: ",myArray[i].difference),console.log(0<=tmp&&tmp>highest),0<=tmp&&tmp<lowest&&(lowest=tmp),0<=tmp&&tmp>highest&&(highest=tmp);var index;
+				for(i=myArray.length-1;0<=i;i--)myArray[i].difference===lowest&&(index=i),console.log("myArray[i].difference === lowest: ",myArray[i].difference===lowest);for(i=myArray.length-1;0<=i;i--)console.log(myArray[i].displaydate);console.log("index: ",index);console.log(moment().tz("<%= timezone %>").format("dddd, MMMM Do YYYY, h:mm:ss a"));console.log(highest,lowest,"STACKOVERFLOW MAGIC");document.getElementById("nextnamaz").innerText=myArray[index].name;
+				var second=1E3,minute=60*second,hour=60*minute,day=24*hour;
+				x=setInterval(function(){var a=moment().tz("<%= timezone %>");distance=myArray[index].realdate;0>=distance-a&&window.location.reload(!1);a=moment.duration(distance.diff(a));a.asHours();a.asMinutes();totalSeconds=a.asSeconds();hoursq=Math.floor(totalSeconds/3600);totalSeconds%=3600;minutesq=Math.floor(totalSeconds/60);secondsq=parseInt(totalSeconds%60);console.log(hoursq,minutesq,secondsq);document.getElementById("hours").innerText=hoursq;document.getElementById("minutes").innerText=Math.floor(totalSeconds/
+				60);document.getElementById("seconds").innerText=parseInt(totalSeconds%60)},second);
+	</script>
+	<noscript>Your browser does not support JavaScript!</noscript>
+</body>
+</html>
