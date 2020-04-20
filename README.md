@@ -1,4 +1,4 @@
-# timeforsalah.com [Prayer Timing Website]
+# Timeforsalah.com [Prayer Timing Website]
 
 &nbsp;&nbsp;Show some ❤️ and ⭐ the repo! 
 <br />
