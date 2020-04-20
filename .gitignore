@@ -1,12 +1,8 @@
 node_modules
 ignore
 playground.js
-sitemap.xml
+
 scrap
-Robots.txt
+
 .vscode
-public/css
-public/fonts
-public/images
-public/scss
 prepros-6.config
