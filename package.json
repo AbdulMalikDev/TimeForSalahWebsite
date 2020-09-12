@@ -14,7 +14,7 @@
     "geo-tz": "^5.0.5",
     "moment": "^2.24.0",
     "moment-timezone": "^0.5.27",
-    "node-fetch": "^2.6.0",
+    "node-fetch": "^2.6.1",
     "nodemon": "^1.19.3",
     "offline-geocoder": "^1.0.0",
     "quran": "0.0.9"
