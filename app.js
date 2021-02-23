@@ -119,17 +119,22 @@ app.get("/day" , (req,res) => {
     console.log(ip)
     //if(ip === "::1" || "::ffff:127.0.0.1"){ ip = `something`;console.log("You are on local server") }
     console.log("THIS IS MY IP",ip)
-    //let ip = "172.98.73.39" 
-    fetch(`https://ipapi.co/${ip}/json/`,{
+    // ip = "172.98.73.39" 
+    fetch(`https://ipwhois.app/json/${ip}`,{
                method:"get",
                headers: {
                 Accept: 'application/json',
               }
              }).then(data => data.json()).then(async e => { 
+
+               if(e.error){
+                location = "Cannot find location"
+                arr = [1]
+                res.render("daypage",{r:arr[0],location,candy,timezone,cityname,GoogleAnalyticsId:process.env.GoogleAnalyticsId,AdId:process.env.dataadclient,pubid:process.env.PubId,integrity:process.env.Integrity})
+               }
                
                var location = `${e.region} , ${e.city} , ${e.country_name}`
-
-
+               console.log(e)
                if(req.query.latitude && req.query.longitude){
                 e.latitude = req.query.latitude
                 e.longitude = req.query.longitude
@@ -149,13 +154,15 @@ app.get("/day" , (req,res) => {
               //console.log(e.latitude,e.longitude)
               let prayerMethod = undefined
               let asrMethod = undefined
+              console.log("Latitude")
+              console.log(e.latitude)
+              console.log("Longitude")
+              console.log(e.longitude)
               const timezone = await geoTz(e.latitude,e.longitude)
               if(req.query.asrMethod){asrMethod = parseInt(req.query.asrMethod)}
               if(req.query.prayerMethod){prayerMethod = parseInt(req.query.prayerMethod)}
               const arr = praynow(e,timezone,prayerMethod,asrMethod)
               const candy = newarr(e,timezone)
-              //console.log(cityname)
-              // console.log(arr,"@@@@@@@@@@@@@@@@")
               
               res.render("daypage",{r:arr[0],location,candy,timezone,cityname,GoogleAnalyticsId:process.env.GoogleAnalyticsId,AdId:process.env.dataadclient,pubid:process.env.PubId,integrity:process.env.Integrity})
                  
