@@ -10,7 +10,7 @@
     "cities.json": "^1.1.5",
     "date-now": "^1.0.1",
     "ejs": "^2.7.1",
-    "express": "^4.17.1",
+    "express": "^4.17.3",
     "geo-tz": "^5.0.5",
     "moment": "^2.24.0",
     "moment-timezone": "^0.5.27",
